@@ -20,6 +20,24 @@ class TagDao extends BaseDao
     }
 
     /**
+     * 获取或新增
+     *
+     * @param $name
+     * @return mixed
+     * @author jiangxianli
+     * @created_at 2019-05-08 10:52
+     */
+    public function firstOrCreate($name)
+    {
+        //实例化模型
+        $model = $this->model->firstOrCreate([
+            'name' => $name,
+        ]);
+
+        return $model;
+    }
+
+    /**
      * 数据列表
      *
      * @param array $condition

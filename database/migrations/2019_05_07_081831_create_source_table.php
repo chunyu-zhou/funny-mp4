@@ -16,6 +16,7 @@ class CreateSourceTable extends Migration
         Schema::create('source', function (Blueprint $table) {
             //表字段
             $table->bigIncrements('id')->comment("主键ID");
+            $table->string("title")->default("")->comment("标题");
             $table->string("cover_image_url")->default("")->comment("封面图地址");
             $table->string("url")->default("")->comment("资源链接地址");
             $table->integer("category_id")->default(0)->comment("分类ID");
@@ -26,9 +27,11 @@ class CreateSourceTable extends Migration
             $table->timestamps();
 
             //表索引
+            $table->unique(["platform_id", "platform_sid"], "u_platform_sid");
             $table->unique("url", "url");
             $table->index("category_id", "category_id");
             $table->index("platform_id", "platform_id");
+            $table->index("platform_sid", "platform_sid");
         });
 
         //表名注释

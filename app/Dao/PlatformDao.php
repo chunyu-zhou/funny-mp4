@@ -20,6 +20,19 @@ class PlatformDao extends BaseDao
     }
 
     /**
+     * 获取或创建新记录
+     *
+     * @param $name
+     * @return mixed
+     * @author jiangxianli
+     * @created_at 2019-05-08 10:29
+     */
+    public function firstOrCreate($name)
+    {
+        return $this->model->firstOrCreate(['name' => $name]);
+    }
+
+    /**
      * 数据列表
      *
      * @param array $condition

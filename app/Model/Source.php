@@ -18,6 +18,7 @@ class Source extends BaseModel
      */
     protected $fillable = [
         'cover_image_url',
+        'title',
         'url',
         'category_id',
         'platform_id',
@@ -25,6 +26,18 @@ class Source extends BaseModel
         'status',
         'view_count'
     ];
+
+    /**
+     * 关联Tag
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @author jiangxianli
+     * @created_at 2019-05-08 10:56
+     */
+    public function tag()
+    {
+        return $this->belongsToMany(Tag::class, 'source_tag', 'tag_id', 'source_id');
+    }
 
 
 }

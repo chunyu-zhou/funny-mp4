@@ -22,12 +22,11 @@ class CreateSourceTable extends Migration
             $table->integer("category_id")->default(0)->comment("分类ID");
             $table->integer("platform_id")->default(0)->comment("平台ID");
             $table->string("platform_sid")->default("")->comment("平台资源ID");
-            $table->enum("status", ["normal", "hidden"])->default("hidden")->comment("显示状态");
+            $table->enum("status", ["normal", "hidden"])->default("normal")->comment("显示状态");
             $table->integer("view_count")->default(0)->comment("观看次数");
             $table->timestamps();
 
             //表索引
-            $table->unique(["platform_id", "platform_sid"], "u_platform_sid");
             $table->unique("url", "url");
             $table->index("category_id", "category_id");
             $table->index("platform_id", "platform_id");

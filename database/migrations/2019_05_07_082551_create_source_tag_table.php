@@ -18,11 +18,10 @@ class CreateSourceTagTable extends Migration
             $table->bigIncrements('id');
             $table->integer("tag_id")->default(0)->comment("标签ID");
             $table->integer("source_id")->default(0)->comment("资源ID");
-            $table->timestamps();
 
             //表索引
-            $table->unique("tag_id", "tag_id");
-            $table->unique("source_id", "source_id");
+            $table->index("tag_id", "tag_id");
+            $table->index("source_id", "source_id");
         });
 
         //表名注释

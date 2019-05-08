@@ -84,7 +84,7 @@ class SourceJob extends Job
         $this->cover_image_url = $cover_image_url;
         $this->url = $url;
         $this->view_count = $view_count;
-        $this->tags = array_filter($this->tags);
+        $this->tags = array_filter($tags);
     }
 
     /**
@@ -116,7 +116,7 @@ class SourceJob extends Job
 
         //绑定关系
         if (!empty($tag_ids)) {
-            $source->sync($tag_ids);
+            $source->tags()->sync($tag_ids);
         }
     }
 }

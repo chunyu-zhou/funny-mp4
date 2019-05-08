@@ -17,7 +17,7 @@ class CreateCategoryTable extends Migration
             //表字段
             $table->bigIncrements('id');
             $table->string("name")->default("")->comment("分类名称");
-            $table->enum("status", ["normal", "hidden"])->default("hidden")->comment("显示状态");
+            $table->enum("status", ["normal", "hidden"])->default("normal")->comment("显示状态");
             $table->timestamps();
 
             //表索引

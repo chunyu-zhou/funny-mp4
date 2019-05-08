@@ -42,8 +42,7 @@ class SourceDao extends BaseDao
         }
         //实例化模型
         $model = $this->model->firstOrCreate([
-            'platform_id'  => $params['platform_id'],
-            'platform_sid' => $params['platform_sid'],
+            'url' => $params['url'],
         ]);
         //填充数据
         $model->fill($params);

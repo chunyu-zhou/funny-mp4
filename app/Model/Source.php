@@ -34,7 +34,7 @@ class Source extends BaseModel
      * @author jiangxianli
      * @created_at 2019-05-08 10:56
      */
-    public function tag()
+    public function tags()
     {
         return $this->belongsToMany(Tag::class, 'source_tag', 'tag_id', 'source_id');
     }
